@@ -1,0 +1,57 @@
+body{
+	font: 1em/150% Helvetica, Arial, sans-serif;
+	padding: 1em;
+	margin: 0 auto;
+	max-width: 33em;
+	background-color: #545454;
+}
+span{
+	color: #ecefac;
+	padding: 1em;
+	margin: 0 auto;
+}
+
+textarea{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #fafcdb;
+	resize: none;
+}
+
+select{
+  border-radius: 4px;
+  background-color: #545454;
+	color: #ecefac;
+  border: none;
+}
+#savecontainer, #resetcontainer{
+	margin-inline-start: 1em;
+}
+#savecontainer > span:nth-child(1){
+	margin-right: 0.5em;
+}
+
+#resetcontainer > span:nth-child(1){
+	margin-right: 0.15em;
+}
+
+.fldcontainer{
+	margin-bottom: 2em;
+}
+
+.selcontainer{
+	margin-bottom: 0.5em;
+}
+
+.btncontainer{
+	margin-bottom: 0.25em;
+}
+
+#curPageState{
+	resize: both;
+}
