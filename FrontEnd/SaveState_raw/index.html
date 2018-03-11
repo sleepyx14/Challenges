@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head><meta http-equiv="content-type" content="text/html; charset=utf-8" /></head>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Save State</title>
+		<link rel="stylesheet" href=".\css\style.css">
+	</head>
 	<body>
-		<div>
+		<div class = "fldcontainer">
 			<span>Field 1</span>
 			<textarea id="fld1" rows="5" cols="50"></textarea>
 			<span>Get beefy lipsum</span>
 			<input id="GETbl1" type="button">
 		</div>
-		<div><span>Field 2</span>
+		<div class = "fldcontainer">
+			<span>Field 2</span>
 			<textarea id="fld2" rows="5" cols="50"></textarea>
 			<span>Get beefy lipsum</span>
 			<input id="GETbl2" type="button">
 		</div>
-		<div><span>Field 3</span>
+		<div class = "fldcontainer">
+			<span>Field 3</span>
 			<textarea id="fld3" rows="5" cols="50"></textarea>
 			<span>Get beefy lipsum</span>
 			<input id="GETbl3" type="button">
 		</div>
-		<br/>
-		<div>
+		<div class = "selcontainer">
 			<span>Drop Down 1</span>
 			<select id="sel1">
 				<option value="1">A</option>
@@ -28,7 +33,7 @@
 				<option value="4">D</option>
 			</select>
 		</div>
-		<div>
+		<div class = "selcontainer">
 			<span>Drop Down 2</span>
 			<select id="sel2">
 				<option value="1">A</option>
@@ -37,7 +42,7 @@
 				<option value="4">D</option>
 			</select>
 		</div>
-		<div>
+		<div class = "selcontainer">
 			<span>Drop Down 3</span>
 			<select id="sel3">
 				<option value="1">A</option>
@@ -46,21 +51,17 @@
 				<option value="4">D</option>
 			</select>
 		</div>
-		<br/>
-		<div><span>Radio Button 1</span><input type="radio" id="btn1" name="testbtn" value="1"></div>
-		<div><span>Radio Button 2</span><input type="radio" id="btn2" name="testbtn" value="2"></div>
-		<div><span>Radio Button 3</span><input type="radio" id="btn3" name="testbtn" value="3"></div>
-		<br/>
-		<br/>
-		<br/>
+		<div class = "btncontainer"><span>Radio Button 1</span><input type="radio" id="btn1" name="testbtn" value="1"></div>
+		<div class = "btncontainer"><span>Radio Button 2</span><input type="radio" id="btn2" name="testbtn" value="2"></div>
+		<div class = "btncontainer"><span>Radio Button 3</span><input type="radio" id="btn3" name="testbtn" value="3"></div>
 		<div>
 			<span>Current State:</span>
-			<textarea rows="5" cols="50" id="curPageState"></textarea>
-		</div>
 		<div>
 			<!-- Add save and reset buttons here -->
-			<div><span>Save</span><input id="save" type="button"></div>
-			<div><span>Reset</span><input id="reset" type="button"></div>
+			<div id="savecontainer"><span>Save</span><input id="save" type="button"></div>
+			<div id="resetcontainer"><span>Reset</span><input id="reset" type="button"></div>
+		</div>
+			<textarea rows="5" cols="50" id="curPageState"></textarea>
 		</div>
 
 		<script src=".\javscript\SaveState_raw.js"></script>

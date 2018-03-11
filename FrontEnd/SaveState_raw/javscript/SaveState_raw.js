@@ -39,23 +39,31 @@ document.getElementById("GETbl3").addEventListener('click', function(){
 
 function updatePageState(elmId){
 	var val = document.getElementById(elmId).value;
-	curState[elmId] = val;
 
 	if(elmId == 'btn1'){
 		delete curState['btn2'];
 		delete curState['btn3'];
+		curState[elmId] = val;
 	}
 	else if(elmId == 'btn2'){
 		delete curState['btn1'];
 		delete curState['btn3'];
+		curState[elmId] = val;
 	}
 	else if(elmId == 'btn3'){
 		delete curState['btn1'];
 		delete curState['btn2'];
+		curState[elmId] = val;
+	}
+	else if(val == "" || !val){
+		delete curState[elmId];
+	}
+	else{
+		curState[elmId] = val;
 	}
 
 	document.getElementById("curPageState").innerHTML = JSON.stringify(curState);
-	// console.log(elmId+":"+curState[elmId]);
+	console.log(elmId+":"+curState[elmId]);
 	console.log(curState);
 }
 
@@ -66,10 +74,11 @@ function savePageState(){
 	try {
 		var successful = document.execCommand('copy');
 		var msg = successful ? 'successful' : 'unsuccessful';
-		/* console.log('Copying text command was ' + msg); */
+		console.log('Copying text command was ' + msg);
 	}
-	catch (err) {
-		/* console.log('Oops, unable to copy:'+ err); */
+	catch (e) {
+		alert("Unable to save page state sorry :(");
+		console.log('Error:'+ e);
 	}
 }
 
@@ -77,8 +86,9 @@ function resetPageState(){
 	var val = document.getElementById("curPageState").value;
 	var jVal = JSON.parse(val);
 
-	for(key in jVal){
-		/* console.log("key:"+key+" ,value:"+jVal[key]); */
+	if(checkSaveStateInput(jVal)){
+		for(key in jVal){
+			/* console.log("key:"+key+" ,value:"+jVal[key]); */
 			if(key == 'btn1'){
 				document.getElementById('btn1').checked=true;
 				document.getElementById('btn2').checked=false;
@@ -94,9 +104,19 @@ function resetPageState(){
 				document.getElementById('btn1').checked=false;
 				document.getElementById('btn2').checked=false;
 			}
+			else if(document.getElementById(key)){
+				document.getElementById(key).value = jVal[key];
+			}
+			else{
+				alert(key+":"+jVal[key]+" does not exits!!!");
+			}
 
-			document.getElementById(key).value = jVal[key];
+		}
 	}
+	else{
+		alert("INVALID INPUT!!!!!");
+	}
+
 }
 
 function getAjax(url, success) {
@@ -122,4 +142,8 @@ function handleBeefyAjaxData(data,elmId){
 	}
 	document.getElementById(elmId).value = beefyLipsum;
 	updatePageState(elmId);
+}
+
+function checkSaveStateInput(obj){
+	return !(Object.keys(obj).length === 0 && obj.constructor === Object);
 }
